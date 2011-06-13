@@ -1,0 +1,286 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D44415A513A6BF2C00153448 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44415A413A6BF2C00153448 /* UIKit.framework */; };
+		D44415A713A6BF2C00153448 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44415A613A6BF2C00153448 /* Foundation.framework */; };
+		D44415A913A6BF2C00153448 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44415A813A6BF2C00153448 /* CoreGraphics.framework */; };
+		D44415AF13A6BF2C00153448 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D44415AD13A6BF2C00153448 /* InfoPlist.strings */; };
+		D44415B213A6BF2C00153448 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D44415B113A6BF2C00153448 /* main.m */; };
+		D44415B513A6BF2C00153448 /* touchDrawAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D44415B413A6BF2C00153448 /* touchDrawAppDelegate.m */; };
+		D44415B813A6BF2C00153448 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D44415B613A6BF2C00153448 /* MainWindow.xib */; };
+		D44415BB13A6BF2C00153448 /* touchDrawViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D44415BA13A6BF2C00153448 /* touchDrawViewController.m */; };
+		D44415BE13A6BF2C00153448 /* touchDrawViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D44415BC13A6BF2C00153448 /* touchDrawViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D44415A013A6BF2C00153448 /* touchDraw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = touchDraw.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D44415A413A6BF2C00153448 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D44415A613A6BF2C00153448 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D44415A813A6BF2C00153448 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D44415AC13A6BF2C00153448 /* touchDraw-Info.plist */ = {isa = PBXFileReference; path = "touchDraw-Info.plist"; sourceTree = "<group>"; };
+		D44415AE13A6BF2C00153448 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D44415B013A6BF2C00153448 /* touchDraw-Prefix.pch */ = {isa = PBXFileReference; path = "touchDraw-Prefix.pch"; sourceTree = "<group>"; };
+		D44415B113A6BF2C00153448 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D44415B313A6BF2C00153448 /* touchDrawAppDelegate.h */ = {isa = PBXFileReference; path = touchDrawAppDelegate.h; sourceTree = "<group>"; };
+		D44415B413A6BF2C00153448 /* touchDrawAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = touchDrawAppDelegate.m; sourceTree = "<group>"; };
+		D44415B713A6BF2C00153448 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		D44415B913A6BF2C00153448 /* touchDrawViewController.h */ = {isa = PBXFileReference; path = touchDrawViewController.h; sourceTree = "<group>"; };
+		D44415BA13A6BF2C00153448 /* touchDrawViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = touchDrawViewController.m; sourceTree = "<group>"; };
+		D44415BD13A6BF2C00153448 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/touchDrawViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D444159D13A6BF2C00153448 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D44415A513A6BF2C00153448 /* UIKit.framework in Frameworks */,
+				D44415A713A6BF2C00153448 /* Foundation.framework in Frameworks */,
+				D44415A913A6BF2C00153448 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D444159513A6BF2C00153448 = {
+			isa = PBXGroup;
+			children = (
+				D44415AA13A6BF2C00153448 /* touchDraw */,
+				D44415A313A6BF2C00153448 /* Frameworks */,
+				D44415A113A6BF2C00153448 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D44415A113A6BF2C00153448 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D44415A013A6BF2C00153448 /* touchDraw.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D44415A313A6BF2C00153448 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D44415A413A6BF2C00153448 /* UIKit.framework */,
+				D44415A613A6BF2C00153448 /* Foundation.framework */,
+				D44415A813A6BF2C00153448 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D44415AA13A6BF2C00153448 /* touchDraw */ = {
+			isa = PBXGroup;
+			children = (
+				D44415B313A6BF2C00153448 /* touchDrawAppDelegate.h */,
+				D44415B413A6BF2C00153448 /* touchDrawAppDelegate.m */,
+				D44415B613A6BF2C00153448 /* MainWindow.xib */,
+				D44415B913A6BF2C00153448 /* touchDrawViewController.h */,
+				D44415BA13A6BF2C00153448 /* touchDrawViewController.m */,
+				D44415BC13A6BF2C00153448 /* touchDrawViewController.xib */,
+				D44415AB13A6BF2C00153448 /* Supporting Files */,
+			);
+			path = touchDraw;
+			sourceTree = "<group>";
+		};
+		D44415AB13A6BF2C00153448 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D44415AC13A6BF2C00153448 /* touchDraw-Info.plist */,
+				D44415AD13A6BF2C00153448 /* InfoPlist.strings */,
+				D44415B013A6BF2C00153448 /* touchDraw-Prefix.pch */,
+				D44415B113A6BF2C00153448 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D444159F13A6BF2C00153448 /* touchDraw */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D44415C113A6BF2C00153448 /* Build configuration list for PBXNativeTarget "touchDraw" */;
+			buildPhases = (
+				D444159C13A6BF2C00153448 /* Sources */,
+				D444159D13A6BF2C00153448 /* Frameworks */,
+				D444159E13A6BF2C00153448 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = touchDraw;
+			productName = touchDraw;
+			productReference = D44415A013A6BF2C00153448 /* touchDraw.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D444159713A6BF2C00153448 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "VHS Design LLC";
+			};
+			buildConfigurationList = D444159A13A6BF2C00153448 /* Build configuration list for PBXProject "touchDraw" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D444159513A6BF2C00153448;
+			productRefGroup = D44415A113A6BF2C00153448 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D444159F13A6BF2C00153448 /* touchDraw */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D444159E13A6BF2C00153448 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D44415AF13A6BF2C00153448 /* InfoPlist.strings in Resources */,
+				D44415B813A6BF2C00153448 /* MainWindow.xib in Resources */,
+				D44415BE13A6BF2C00153448 /* touchDrawViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D444159C13A6BF2C00153448 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D44415B213A6BF2C00153448 /* main.m in Sources */,
+				D44415B513A6BF2C00153448 /* touchDrawAppDelegate.m in Sources */,
+				D44415BB13A6BF2C00153448 /* touchDrawViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D44415AD13A6BF2C00153448 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D44415AE13A6BF2C00153448 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D44415B613A6BF2C00153448 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D44415B713A6BF2C00153448 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		D44415BC13A6BF2C00153448 /* touchDrawViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D44415BD13A6BF2C00153448 /* en */,
+			);
+			name = touchDrawViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D44415BF13A6BF2C00153448 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D44415C013A6BF2C00153448 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		D44415C213A6BF2C00153448 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "touchDraw/touchDraw-Prefix.pch";
+				INFOPLIST_FILE = "touchDraw/touchDraw-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D44415C313A6BF2C00153448 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "touchDraw/touchDraw-Prefix.pch";
+				INFOPLIST_FILE = "touchDraw/touchDraw-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D444159A13A6BF2C00153448 /* Build configuration list for PBXProject "touchDraw" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D44415BF13A6BF2C00153448 /* Debug */,
+				D44415C013A6BF2C00153448 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D44415C113A6BF2C00153448 /* Build configuration list for PBXNativeTarget "touchDraw" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D44415C213A6BF2C00153448 /* Debug */,
+				D44415C313A6BF2C00153448 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D444159713A6BF2C00153448 /* Project object */;
+}
