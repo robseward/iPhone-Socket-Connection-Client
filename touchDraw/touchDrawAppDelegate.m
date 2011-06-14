@@ -9,6 +9,12 @@
 #import "touchDrawAppDelegate.h"
 
 #import "touchDrawViewController.h"
+#import "DDLog.h"
+#import "DDTTYLogger.h"
+
+
+// Log levels: off, error, warn, info, verbose
+static const int ddLogLevel = LOG_LEVEL_INFO;
 
 @implementation touchDrawAppDelegate
 
@@ -20,6 +26,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
+
      
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];

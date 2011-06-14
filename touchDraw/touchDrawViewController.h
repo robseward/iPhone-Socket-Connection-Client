@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GCDAsyncSocket.h"
 
 @interface touchDrawViewController : UIViewController {
-    
+    GCDAsyncSocket *asyncSocket;
 }
+
+- (void)normalConnect;
+
 
 @end
