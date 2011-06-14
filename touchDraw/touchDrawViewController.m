@@ -83,6 +83,41 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
     //	}
 }
 
+- (IBAction)resetConnection:(id)sender{
+    if ([asyncSocket isConnected]) {
+        [asyncSocket disconnect];
+    }
+    [self normalConnect];
+}
+
+//define the targetmethod
+-(void) writeRandomData:(NSTimer *)theTimer {
+    int random = (int)(arc4random() % 100);
+    NSString* str= [NSString stringWithFormat:@"%d", random];
+    NSData* data=[str dataUsingEncoding:NSUTF8StringEncoding];
+    [asyncSocket writeData:data withTimeout:10.0f tag:0];
+    DDLogInfo(str);
+}
+
+-(void) writeCoordinate:(NSString *)type point:(CGPoint)p{
+    NSString* str= [NSString stringWithFormat:@":%@,%d,%d:", type, (int)p.x, (int)p.y];
+    NSData* data=[str dataUsingEncoding:NSUTF8StringEncoding];
+    [asyncSocket writeData:data withTimeout:10.0f tag:0];
+    DDLogInfo(str);
+}
+
+- (void) timerWriteData:(NSTimer *)theTimer{
+    if(touching){
+        NSString* str= [NSString stringWithFormat:@":%@,%d,%d:", touchType, (int)touchPosition.x, (int)touchPosition.y];
+        NSData* data=[str dataUsingEncoding:NSUTF8StringEncoding];
+        [asyncSocket writeData:data withTimeout:10.0f tag:0];
+        DDLogInfo(str);
+    }
+    touching = NO;
+    
+}
+
+
 #pragma mark - socket
 
 - (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(UInt16)port
@@ -145,7 +180,8 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 		// Please see the documentation for the startTLS method in GCDAsyncSocket.h for a full discussion.
         
 	}
-    [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(writeRandomData:) userInfo:nil repeats:YES];
+    
+    //[NSTimer scheduledTimerWithTimeInterval:0.001 target:self selector:@selector(timerWriteData:) userInfo:nil repeats:YES];
     
 }
 
@@ -162,15 +198,29 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 #pragma mark - touches
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    
+    touchType = @"b";
+    touchPosition = [[touches anyObject] locationInView:self.view];
+    touching = YES;
+    [self timerWriteData:nil];
+    //[self writeCoordinate:@"b" point:pt];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
-    
+    touchType = @"m";
+    touchPosition = [[touches anyObject] locationInView:self.view];
+    touching = YES;
+    [self timerWriteData:nil];
+
+    //[self writeCoordinate:@"m" point:pt];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
-    
+    touchType = @"e";
+    touchPosition = [[touches anyObject] locationInView:self.view];
+    touching = YES;
+    [self timerWriteData:nil];
+
+    //[self writeCoordinate:@"e" point:pt];
 }
 
 @end

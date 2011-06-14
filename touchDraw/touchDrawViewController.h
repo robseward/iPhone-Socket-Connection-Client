@@ -9,11 +9,19 @@
 #import <UIKit/UIKit.h>
 #import "GCDAsyncSocket.h"
 
+#define kBeganType @"b"
+#define kMovedType @"m"
+#define kEndedType @"e"
+
 @interface touchDrawViewController : UIViewController {
     GCDAsyncSocket *asyncSocket;
+    CGPoint touchPosition;
+    NSString *touchType;
+    BOOL touching;
 }
 
 - (void)normalConnect;
-
+-(void) writeCoordinate:(NSString *)type point:(CGPoint)p;
+- (IBAction)resetConnection:(id)sender;
 
 @end
