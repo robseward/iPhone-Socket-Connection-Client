@@ -15,10 +15,7 @@
 
 @interface touchDrawViewController : UIViewController {
     GCDAsyncSocket *asyncSocket;
-    CGPoint touchPosition;
-    NSString *touchType;
-    BOOL touching;
-}
+    }
 
 - (void)normalConnect;
 -(void) writeCoordinate:(NSString *)type point:(CGPoint)p;

@@ -10,6 +10,8 @@
 #import "DDLog.h"
 #import "DDTTYLogger.h"
 
+#define kIpAddress @"192.168.1.103"
+#define kPort 6780
 
 // Log levels: off, error, warn, info, verbose
 static const int ddLogLevel = LOG_LEVEL_INFO;
@@ -19,15 +21,9 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 - (void)dealloc
 {
     [super dealloc];
+    [asyncSocket release];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
 
 #pragma mark - View lifecycle
 
@@ -36,22 +32,9 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    NSLog(@"HELLO?");
-    DDLogInfo(@"HELLO AGAIN");
-    dispatch_queue_t mainQueue = dispatch_get_main_queue();
-	
-	asyncSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:mainQueue];
-	
+    dispatch_queue_t mainQueue = dispatch_get_main_queue();	
+	asyncSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:mainQueue];	
 	[self normalConnect];
-}
-
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -61,26 +44,17 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 }
 
 
-
 - (void)normalConnect
 {
 	NSError *error = nil;
     
-	NSString *host = @"192.168.1.103";
-    //	NSString *host = @"google.com";
-    //	NSString *host = @"deusty.com";
+	NSString *host = kIpAddress;
+
 	
-	if (![asyncSocket connectToHost:host onPort:6780 error:&error])
+	if (![asyncSocket connectToHost:host onPort:kPort error:&error])
 	{
 		DDLogInfo(@"Error connecting: %@", error);
 	}
-    
-	// You can also specify an optional connect timeout.
-	
-    //	if (![asyncSocket connectToHost:host onPort:80 withTimeout:5.0 error:&error])
-    //	{
-    //		DDLogError(@"Error connecting: %@", error);
-    //	}
 }
 
 - (IBAction)resetConnection:(id)sender{
@@ -90,14 +64,7 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
     [self normalConnect];
 }
 
-//define the targetmethod
--(void) writeRandomData:(NSTimer *)theTimer {
-    int random = (int)(arc4random() % 100);
-    NSString* str= [NSString stringWithFormat:@"%d", random];
-    NSData* data=[str dataUsingEncoding:NSUTF8StringEncoding];
-    [asyncSocket writeData:data withTimeout:10.0f tag:0];
-    DDLogInfo(str);
-}
+
 
 -(void) writeCoordinate:(NSString *)type point:(CGPoint)p{
     NSString* str= [NSString stringWithFormat:@":%@,%d,%d:", type, (int)p.x, (int)p.y];
@@ -106,16 +73,6 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
     DDLogInfo(str);
 }
 
-- (void) timerWriteData:(NSTimer *)theTimer{
-    if(touching){
-        NSString* str= [NSString stringWithFormat:@":%@,%d,%d:", touchType, (int)touchPosition.x, (int)touchPosition.y];
-        NSData* data=[str dataUsingEncoding:NSUTF8StringEncoding];
-        [asyncSocket writeData:data withTimeout:10.0f tag:0];
-        DDLogInfo(str);
-    }
-    touching = NO;
-    
-}
 
 
 #pragma mark - socket
@@ -123,104 +80,44 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 - (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(UInt16)port
 {
 	DDLogInfo(@"socket:%p didConnectToHost:%@ port:%hu", sock, host, port);
-	
-    //	DDLogInfo(@"localHost :%@ port:%hu", [sock localHost], [sock localPort]);
-	
-	if (port == 443)
-	{
-		
-#if !TARGET_IPHONE_SIMULATOR
-		
-		// Backgrounding doesn't seem to be supported on the simulator yet
-		
-		[sock performBlock:^{
-			if ([sock enableBackgroundingOnSocketWithCaveat])
-				DDLogInfo(@"Enabled backgrounding on socket");
-			else
-				DDLogWarn(@"Enabling backgrounding failed!");
-		}];
-		
-#endif
-		
-		// Configure SSL/TLS settings
-		NSMutableDictionary *settings = [NSMutableDictionary dictionaryWithCapacity:3];
-		
-		// If you simply want to ensure that the remote host's certificate is valid,
-		// then you can use an empty dictionary.
-		
-		// If you know the name of the remote host, then you should specify the name here.
-		// 
-		// NOTE:
-		// You should understand the security implications if you do not specify the peer name.
-		// Please see the documentation for the startTLS method in GCDAsyncSocket.h for a full discussion.
-		
-		[settings setObject:@"www.paypal.com"
-					 forKey:(NSString *)kCFStreamSSLPeerName];
-		
-		// To connect to a test server, with a self-signed certificate, use settings similar to this:
-		
-        //	// Allow expired certificates
-        //	[settings setObject:[NSNumber numberWithBool:YES]
-        //				 forKey:(NSString *)kCFStreamSSLAllowsExpiredCertificates];
-        //	
-        //	// Allow self-signed certificates
-        //	[settings setObject:[NSNumber numberWithBool:YES]
-        //				 forKey:(NSString *)kCFStreamSSLAllowsAnyRoot];
-        //	
-        //	// In fact, don't even validate the certificate chain
-        //	[settings setObject:[NSNumber numberWithBool:NO]
-        //				 forKey:(NSString *)kCFStreamSSLValidatesCertificateChain];
-		
-		DDLogVerbose(@"Starting TLS with settings:\n%@", settings);
-		
-		[sock startTLS:settings];
-		
-		// You can also pass nil to the startTLS method, which is the same as passing an empty dictionary.
-		// Again, you should understand the security implications of doing so.
-		// Please see the documentation for the startTLS method in GCDAsyncSocket.h for a full discussion.
-        
-	}
-    
-    //[NSTimer scheduledTimerWithTimeInterval:0.001 target:self selector:@selector(timerWriteData:) userInfo:nil repeats:YES];
-    
 }
+
 
 - (void)socketDidSecure:(GCDAsyncSocket *)sock
 {
 	DDLogInfo(@"socketDidSecure:%p", sock);
 }
 
+
 - (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err
 {
 	DDLogInfo(@"socketDidDisconnect:%p withError: %@", sock, err);
 }
 
+
+
 #pragma mark - touches
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    touchType = @"b";
-    touchPosition = [[touches anyObject] locationInView:self.view];
-    touching = YES;
-    [self timerWriteData:nil];
-    //[self writeCoordinate:@"b" point:pt];
+    NSString *touchType = @"b";
+    CGPoint touchPosition = [[touches anyObject] locationInView:self.view];
+    
+    [self writeCoordinate:touchType point:touchPosition];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
-    touchType = @"m";
-    touchPosition = [[touches anyObject] locationInView:self.view];
-    touching = YES;
-    [self timerWriteData:nil];
-
-    //[self writeCoordinate:@"m" point:pt];
+    NSString *touchType = @"m";
+    CGPoint touchPosition = [[touches anyObject] locationInView:self.view];
+    
+    [self writeCoordinate:touchType point:touchPosition];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
-    touchType = @"e";
-    touchPosition = [[touches anyObject] locationInView:self.view];
-    touching = YES;
-    [self timerWriteData:nil];
+    NSString *touchType = @"e";
+    CGPoint touchPosition = [[touches anyObject] locationInView:self.view];
+   
 
-    //[self writeCoordinate:@"e" point:pt];
+    [self writeCoordinate:touchType point:touchPosition];
 }
 
 @end
