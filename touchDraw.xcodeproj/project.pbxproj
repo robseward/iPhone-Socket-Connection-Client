@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D4214CF613AC0B7E001962FF /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = D4214CEF13AC0B7E001962FF /* DDASLLogger.m */; };
+		D4214CF713AC0B7E001962FF /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = D4214CF113AC0B7E001962FF /* DDFileLogger.m */; };
+		D4214CF813AC0B7E001962FF /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = D4214CF313AC0B7E001962FF /* DDLog.m */; };
+		D4214CF913AC0B7E001962FF /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = D4214CF513AC0B7E001962FF /* DDTTYLogger.m */; };
 		D44415A513A6BF2C00153448 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44415A413A6BF2C00153448 /* UIKit.framework */; };
 		D44415A713A6BF2C00153448 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44415A613A6BF2C00153448 /* Foundation.framework */; };
 		D44415A913A6BF2C00153448 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44415A813A6BF2C00153448 /* CoreGraphics.framework */; };
@@ -18,13 +22,17 @@
 		D44415BE13A6BF2C00153448 /* touchDrawViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D44415BC13A6BF2C00153448 /* touchDrawViewController.xib */; };
 		D44415DD13A6D98800153448 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44415DC13A6D98800153448 /* CFNetwork.framework */; };
 		D44415E813A6D9E300153448 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = D44415E713A6D9E300153448 /* GCDAsyncSocket.m */; };
-		D44415F213A6DC4700153448 /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = D44415EB13A6DC4700153448 /* DDLog.m */; };
-		D44415F313A6DC4700153448 /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = D44415ED13A6DC4700153448 /* DDTTYLogger.m */; };
-		D44415F413A6DC4700153448 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = D44415EF13A6DC4700153448 /* DDASLLogger.m */; };
-		D44415F513A6DC4700153448 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = D44415F113A6DC4700153448 /* DDFileLogger.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D4214CEE13AC0B7E001962FF /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDASLLogger.h; path = touchDraw/Logging/DDASLLogger.h; sourceTree = "<group>"; };
+		D4214CEF13AC0B7E001962FF /* DDASLLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDASLLogger.m; path = touchDraw/Logging/DDASLLogger.m; sourceTree = "<group>"; };
+		D4214CF013AC0B7E001962FF /* DDFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDFileLogger.h; path = touchDraw/Logging/DDFileLogger.h; sourceTree = "<group>"; };
+		D4214CF113AC0B7E001962FF /* DDFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDFileLogger.m; path = touchDraw/Logging/DDFileLogger.m; sourceTree = "<group>"; };
+		D4214CF213AC0B7E001962FF /* DDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDLog.h; path = touchDraw/Logging/DDLog.h; sourceTree = "<group>"; };
+		D4214CF313AC0B7E001962FF /* DDLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDLog.m; path = touchDraw/Logging/DDLog.m; sourceTree = "<group>"; };
+		D4214CF413AC0B7E001962FF /* DDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDTTYLogger.h; path = touchDraw/Logging/DDTTYLogger.h; sourceTree = "<group>"; };
+		D4214CF513AC0B7E001962FF /* DDTTYLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDTTYLogger.m; path = touchDraw/Logging/DDTTYLogger.m; sourceTree = "<group>"; };
 		D44415A013A6BF2C00153448 /* touchDraw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = touchDraw.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D44415A413A6BF2C00153448 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D44415A613A6BF2C00153448 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -42,14 +50,6 @@
 		D44415DC13A6D98800153448 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		D44415E613A6D9E300153448 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
 		D44415E713A6D9E300153448 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
-		D44415EA13A6DC4700153448 /* DDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLog.h; sourceTree = "<group>"; };
-		D44415EB13A6DC4700153448 /* DDLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDLog.m; sourceTree = "<group>"; };
-		D44415EC13A6DC4700153448 /* DDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTTYLogger.h; sourceTree = "<group>"; };
-		D44415ED13A6DC4700153448 /* DDTTYLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTTYLogger.m; sourceTree = "<group>"; };
-		D44415EE13A6DC4700153448 /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
-		D44415EF13A6DC4700153448 /* DDASLLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDASLLogger.m; sourceTree = "<group>"; };
-		D44415F013A6DC4700153448 /* DDFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileLogger.h; sourceTree = "<group>"; };
-		D44415F113A6DC4700153448 /* DDFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDFileLogger.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,14 +126,14 @@
 		D44415E913A6DC0B00153448 /* Logging */ = {
 			isa = PBXGroup;
 			children = (
-				D44415EA13A6DC4700153448 /* DDLog.h */,
-				D44415EB13A6DC4700153448 /* DDLog.m */,
-				D44415EC13A6DC4700153448 /* DDTTYLogger.h */,
-				D44415ED13A6DC4700153448 /* DDTTYLogger.m */,
-				D44415EE13A6DC4700153448 /* DDASLLogger.h */,
-				D44415EF13A6DC4700153448 /* DDASLLogger.m */,
-				D44415F013A6DC4700153448 /* DDFileLogger.h */,
-				D44415F113A6DC4700153448 /* DDFileLogger.m */,
+				D4214CEE13AC0B7E001962FF /* DDASLLogger.h */,
+				D4214CEF13AC0B7E001962FF /* DDASLLogger.m */,
+				D4214CF013AC0B7E001962FF /* DDFileLogger.h */,
+				D4214CF113AC0B7E001962FF /* DDFileLogger.m */,
+				D4214CF213AC0B7E001962FF /* DDLog.h */,
+				D4214CF313AC0B7E001962FF /* DDLog.m */,
+				D4214CF413AC0B7E001962FF /* DDTTYLogger.h */,
+				D4214CF513AC0B7E001962FF /* DDTTYLogger.m */,
 			);
 			name = Logging;
 			sourceTree = "<group>";
@@ -205,10 +205,10 @@
 				D44415B513A6BF2C00153448 /* touchDrawAppDelegate.m in Sources */,
 				D44415BB13A6BF2C00153448 /* touchDrawViewController.m in Sources */,
 				D44415E813A6D9E300153448 /* GCDAsyncSocket.m in Sources */,
-				D44415F213A6DC4700153448 /* DDLog.m in Sources */,
-				D44415F313A6DC4700153448 /* DDTTYLogger.m in Sources */,
-				D44415F413A6DC4700153448 /* DDASLLogger.m in Sources */,
-				D44415F513A6DC4700153448 /* DDFileLogger.m in Sources */,
+				D4214CF613AC0B7E001962FF /* DDASLLogger.m in Sources */,
+				D4214CF713AC0B7E001962FF /* DDFileLogger.m in Sources */,
+				D4214CF813AC0B7E001962FF /* DDLog.m in Sources */,
+				D4214CF913AC0B7E001962FF /* DDTTYLogger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
